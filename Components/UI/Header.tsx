@@ -1,6 +1,6 @@
 import Image from "next/image";
 import logo from "../../public/logo.png";
-import styles from "./Header.module.css";
+import NavBarDropdown from "./NavBarDropdown";
 const Header = () => {
   return (
     <div className="flex flex-col">
@@ -37,12 +37,18 @@ const Header = () => {
           <a href="#">become a member</a>
         </span>
       </div>
-      <div className="flex flex-row">
-        <div className="basis-1/3 ml-5">
+      <div className="flex flex-row bg-slate-500">
+        <div className="basis-1/6 lg:hidden">
+          <NavBarDropdown/>
+        </div>
+        <div className="invisible basis-1/6 ml-5 lg:visible mx-auto my-auto">
           <Image width={75} height={55} src={logo} alt="logo"></Image>
         </div>
-        <div className="basis-1/3 mt-auto">
-          <div className="mb-2">
+        <div className="basis-3/6 mt-auto text-left">
+        <div className="lg:invisible mx-auto my-auto">
+          <Image width={75} height={55} src={logo} alt="logo"></Image>
+        </div>
+          <div className="invisible mb-2 lg:visible">
             <a href="#" className="px-2 font-medium">
               MEN
             </a>
@@ -63,7 +69,7 @@ const Header = () => {
             </a>
           </div>
         </div>
-        <div className="basis-1/3 flex mt-auto mb-auto items-center justify-end mr-6">
+        <div className="basis-2/6 flex mt-auto mb-auto items-center justify-end mr-6">
           <label htmlFor="searchBar"></label>
           <input
             type="text"
